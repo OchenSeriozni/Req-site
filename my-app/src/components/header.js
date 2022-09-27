@@ -3,9 +3,12 @@ import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import NavDropdown from 'react-bootstrap/NavDropdown';
-
 import React from 'react';
+import {BrowserRouter as Router, Routes,Route } from 'react-router-dom';
+import About from '../Pages/about.js'
+import Home from '../Pages/home.js'
+import Blog from '../Pages/blog.js'
+import Contacts from '../Pages/contacts.js'
 
 function Heder() {
   return (
@@ -15,11 +18,11 @@ function Heder() {
       <Navbar.Brand href="#home">
             <img
               alt=""
-              src="/logo.svg"
+              src=""
               width="30"
               height="30"
               className="d-inline-block align-top"
-            />{' '}
+            />
             React Bootstrap
           </Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
@@ -29,10 +32,10 @@ function Heder() {
             style={{ maxHeight: '100px' }}
             navbarScroll
           >
-            <Nav.Link href="#action1">Home</Nav.Link>
-            <Nav.Link href="#action2">About us</Nav.Link>
-            <Nav.Link href="#action1">Contacts</Nav.Link>
-            <Nav.Link href="#action2">Blog</Nav.Link>
+            <Nav.Link href="#">Home</Nav.Link>
+            <Nav.Link href="#">About us</Nav.Link>
+            <Nav.Link href="#">Contacts</Nav.Link>
+            <Nav.Link href="#">Blog</Nav.Link>
           </Nav>
           <Form className="d-flex">
             <Form.Control
@@ -46,6 +49,14 @@ function Heder() {
         </Navbar.Collapse>
       </Container>
     </Navbar>
+    <Router>
+      <Routes>
+      <Route exact path='/home' element={<Home/>} />
+      <Route exact path='/aboutus' element={<About/>} />
+      <Route exact path='/contacts' element={<Contacts/>} />
+      <Route exact path='/blog' element={<Blog/>} />
+      </Routes>
+    </Router>
     </>
   );
 }
